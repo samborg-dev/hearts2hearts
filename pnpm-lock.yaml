@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@auth/drizzle-adapter':
         specifier: ^1.7.2
-        version: 1.10.0
+        version: 1.10.0(nodemailer@7.0.6)
       '@t3-oss/env-nextjs':
         specifier: ^0.12.0
         version: 0.12.0(typescript@5.9.2)(zod@3.25.76)
@@ -22,7 +22,10 @@ importers:
         version: 15.5.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       next-auth:
         specifier: 5.0.0-beta.25
-        version: 5.0.0-beta.25(next@15.5.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
+        version: 5.0.0-beta.25(next@15.5.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(nodemailer@7.0.6)(react@19.1.1)
+      nodemailer:
+        specifier: ^7.0.6
+        version: 7.0.6
       postgres:
         specifier: ^3.4.4
         version: 3.4.7
@@ -1962,6 +1965,10 @@ packages:
       sass:
         optional: true
 
+  nodemailer@7.0.6:
+    resolution: {integrity: sha512-F44uVzgwo49xboqbFgBGkRaiMgtoBrBEWCVincJPK9+S9Adkzt/wXCLKbf7dxucmxfTI5gHGB+bEmdyzN6QKjw==}
+    engines: {node: '>=6.0.0'}
+
   oauth4webapi@3.8.1:
     resolution: {integrity: sha512-olkZDELNycOWQf9LrsELFq8n05LwJgV8UkrS0cburk6FOwf8GvLam+YB+Uj5Qvryee+vwWOfQVeI5Vm0MVg7SA==}
 
@@ -2459,7 +2466,7 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
-  '@auth/core@0.37.2':
+  '@auth/core@0.37.2(nodemailer@7.0.6)':
     dependencies:
       '@panva/hkdf': 1.2.1
       '@types/cookie': 0.6.0
@@ -2468,18 +2475,22 @@ snapshots:
       oauth4webapi: 3.8.1
       preact: 10.11.3
       preact-render-to-string: 5.2.3(preact@10.11.3)
+    optionalDependencies:
+      nodemailer: 7.0.6
 
-  '@auth/core@0.40.0':
+  '@auth/core@0.40.0(nodemailer@7.0.6)':
     dependencies:
       '@panva/hkdf': 1.2.1
       jose: 6.1.0
       oauth4webapi: 3.8.1
       preact: 10.24.3
       preact-render-to-string: 6.5.11(preact@10.24.3)
+    optionalDependencies:
+      nodemailer: 7.0.6
 
-  '@auth/drizzle-adapter@1.10.0':
+  '@auth/drizzle-adapter@1.10.0(nodemailer@7.0.6)':
     dependencies:
-      '@auth/core': 0.40.0
+      '@auth/core': 0.40.0(nodemailer@7.0.6)
     transitivePeerDependencies:
       - '@simplewebauthn/browser'
       - '@simplewebauthn/server'
@@ -4188,11 +4199,13 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-auth@5.0.0-beta.25(next@15.5.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1):
+  next-auth@5.0.0-beta.25(next@15.5.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(nodemailer@7.0.6)(react@19.1.1):
     dependencies:
-      '@auth/core': 0.37.2
+      '@auth/core': 0.37.2(nodemailer@7.0.6)
       next: 15.5.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react: 19.1.1
+    optionalDependencies:
+      nodemailer: 7.0.6
 
   next@15.5.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
@@ -4216,6 +4229,8 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+
+  nodemailer@7.0.6: {}
 
   oauth4webapi@3.8.1: {}
 

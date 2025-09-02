@@ -1,6 +1,6 @@
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { type DefaultSession, type NextAuthConfig } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+import EmailProvider from "next-auth/providers/email";
 
 import { db } from "~/server/db";
 import {
@@ -38,11 +38,21 @@ declare module "next-auth" {
  */
 export const authConfig = {
   providers: [
-    DiscordProvider,
+    EmailProvider({
+      server: {
+        host: process.env.EMAIL_SERVER_HOST,
+        port: process.env.EMAIL_SERVER_PORT,
+        auth: {
+          user: process.env.EMAIL_SERVER_USER,
+          pass: process.env.EMAIL_SERVER_PASSWORD,
+        },
+      },
+      from: process.env.EMAIL_FROM,
+    }),
     /**
      * ...add more providers here.
      *
-     * Most other providers require a bit more work than the Discord provider. For example, the
+     * Most other providers require a bit more work than the Email provider. For example, the
      * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
      * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
      *
